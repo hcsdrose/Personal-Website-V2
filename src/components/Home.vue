@@ -1,8 +1,8 @@
 
 <template>
-  <div class="homepage-plain">
-    <h1>Christopher Rose</h1>
-    <h2>Educator & Executive</h2>
+  <div class="homepage-content">
+    <h1>Experienced Educator Turned Tech Executive with 15+ Years in Software Development</h1>
+    <p>Currently the Chief Product Officer at Abre, I blend a passion for education with deep expertise in software development, driving innovative solutions that empower K12 schools and enhance learning outcomes.</p>
   </div>
 </template>
 
@@ -13,29 +13,13 @@ export default {
 </script>
 
 <style scoped>
-.homepage-plain {
-  background: #fff;
-  color: #000;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.h1 {
+  font-size: 3.125em;
+  line-height: 1.2em;
+}
+.homepage-content {
+  padding: 2rem 0;
   font-family: 'Rubik', Arial, Helvetica, sans-serif;
-}
-h1, h2 {
-  margin: 0;
-  font-family: 'Rubik', Arial, Helvetica, sans-serif;
-}
-h1 {
-  color: #000;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: -0.7rem;
-}
-h2 {
-  color: #666;
-  margin-top: -0.7rem;
 }
 h2 {
   color: #666;
