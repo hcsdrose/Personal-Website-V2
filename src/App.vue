@@ -1,4 +1,3 @@
-
 <template>
   <div id="app" class="app-flex">
     <nav class="navbar">
@@ -42,8 +41,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding-left: 40px;
+  padding-right: 40px;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   background: #000;
