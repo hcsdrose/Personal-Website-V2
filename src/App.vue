@@ -17,8 +17,8 @@
       <div v-if="showMobileMenu" class="mobile-menu-overlay">
         <div class="mobile-menu-content">
           <button class="close-btn" @click="showMobileMenu = false">&times;</button>
-          <router-link to="/" @click.native="closeMobileMenu">Home</router-link>
-          <router-link to="/about" @click.native="closeMobileMenu">About</router-link>
+          <router-link to="/" @click="closeMobileMenu">Home</router-link>
+          <router-link to="/about" @click="closeMobileMenu">About</router-link>
         </div>
       </div>
     </nav>
