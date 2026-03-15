@@ -22,9 +22,9 @@
         </div>
       </div>
     </nav>
-    <div class="main-content">
+    <main class="main-content" id="main-content">
       <router-view />
-    </div>
+    </main>
     <footer class="footer-bar">
       <div class="footer-left">
         <a href="https://github.com/hcsdrose" target="_blank" rel="noopener" class="footer-link">GitHub</a>
