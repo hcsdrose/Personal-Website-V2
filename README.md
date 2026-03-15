@@ -1,4 +1,7 @@
-# personal-website-v2
+
+# Christopher Rose
+
+Personal website for Christopher Rose — Educator & Executive.
 
 ## Project setup
 ```
