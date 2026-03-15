@@ -9,7 +9,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.NODE_ENV === 'production' ? '/Personal-Website-V2/' : '/'),
+  history: createWebHistory('/'),
   routes,
 });
 
