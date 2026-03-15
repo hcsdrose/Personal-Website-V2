@@ -64,7 +64,7 @@ export default {
   padding-bottom: 1.5rem;
   background: #000;
   border-bottom: 1px solid #222;
-  font-family: 'Rubik', Arial, Helvetica, sans-serif;
+  font-family: 'Rubik', system-ui, Arial, Helvetica, sans-serif;
   width: 100%;
   box-sizing: border-box;
 }
