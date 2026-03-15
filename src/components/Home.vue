@@ -24,19 +24,28 @@ export default {
   font-family: 'Rubik', Arial, Helvetica, sans-serif;
 }
 h1, h2 {
-  color: #000;
   margin: 0;
   font-family: 'Rubik', Arial, Helvetica, sans-serif;
 }
 h1 {
+  color: #000;
   font-size: 2.5rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  font-weight: bold;
+  margin-bottom: -0.7rem;
 }
 h2 {
-  font-size: 1.5rem;
-  font-weight: 500;
   color: #666;
-  letter-spacing: -1px;
+  margin-top: -0.7rem;
+}
+h2 {
+  color: #666;
+  margin-top: -0.3rem;
+}
+h2 {
+  color: #666;
+  margin-top: 0;
+}
+h2 {
+  color: #666;
 }
 </style>
