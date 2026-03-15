@@ -28,7 +28,7 @@
     <footer class="footer-bar">
       <div class="footer-left">
         <a href="https://github.com/hcsdrose" target="_blank" rel="noopener" class="footer-link">GitHub</a>
-        <a href="https://www.linkedin.com/in/christopherrose/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/christopherrosein/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
         <a href="https://x.com/hcsdrose" target="_blank" rel="noopener" class="footer-link">X</a>
       </div>
     </footer>
