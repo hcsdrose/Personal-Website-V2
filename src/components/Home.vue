@@ -50,4 +50,13 @@ h2 {
 h2 {
   color: #666;
 }
+
+@media (max-width: 600px) {
+  .homepage-content h1 {
+    font-size: 2em;
+  }
+  .homepage-content p {
+    font-size: 1em;
+  }
+}
 </style>

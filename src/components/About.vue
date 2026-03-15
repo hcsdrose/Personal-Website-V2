@@ -32,4 +32,13 @@ export default {
 .about-content p {
   font-size: 1.5em;
 }
+
+@media (max-width: 600px) {
+  .about-content h1 {
+    font-size: 2em;
+  }
+  .about-content p {
+    font-size: 1em;
+  }
+}
 </style>
