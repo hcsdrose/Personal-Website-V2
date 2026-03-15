@@ -7,9 +7,19 @@
           <span class="site-subtitle">Educator & Executive</span>
         </div>
       </div>
-      <div class="nav-right">
+      <div class="nav-right desktop-nav">
         <router-link to="/" exact-active-class="active">Home</router-link>
         <router-link to="/about" exact-active-class="active">About</router-link>
+      </div>
+      <div class="mobile-menu-icon" @click="showMobileMenu = true">
+        <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#fff" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      </div>
+      <div v-if="showMobileMenu" class="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+          <button class="close-btn" @click="showMobileMenu = false">&times;</button>
+          <router-link to="/" @click.native="closeMobileMenu">Home</router-link>
+          <router-link to="/about" @click.native="closeMobileMenu">About</router-link>
+        </div>
       </div>
     </nav>
     <div class="main-content">
@@ -28,9 +38,17 @@
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+      showMobileMenu: false
+    };
+  },
   methods: {
     goHome() {
       this.$router.push('/');
+    },
+    closeMobileMenu() {
+      this.showMobileMenu = false;
     }
   }
 };
@@ -111,11 +129,12 @@ export default {
   line-height: 1.1;
   margin-top: 0;
 }
-.nav-right {
+/* Desktop nav */
+.nav-right.desktop-nav {
   display: flex;
   gap: 1.5rem;
 }
-.nav-right a {
+.nav-right.desktop-nav a {
   color: #fff;
   text-decoration: none;
   font-size: 1.1em;
@@ -123,12 +142,72 @@ export default {
   font-weight: 500;
   transition: color 0.2s;
 }
-.nav-right a.active {
+.nav-right.desktop-nav a.active {
   color: #fff;
   border-bottom: 2px solid #fff;
 }
-.nav-right a:hover {
+.nav-right.desktop-nav a:hover {
   color: #fff;
+}
+
+/* Mobile menu icon */
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+.mobile-menu-content .close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.mobile-menu-content a {
+  color: #fff;
+  font-size: 2.2em;
+  text-decoration: none;
+  font-family: 'Rubik', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.mobile-menu-content a.active {
+  border-bottom: 2px solid #fff;
+}
+.mobile-menu-content a:hover {
+  color: #ccc;
+}
+
+@media (max-width: 800px) {
+  .nav-right.desktop-nav {
+    display: none;
+  }
+  .mobile-menu-icon {
+    display: block;
+  }
 }
 /* App flex layout for full height */
 #app.app-flex {
