@@ -54,6 +54,7 @@
 }
 .site-nav-link.router-link-exact-active {
   text-decoration: underline;
+  text-decoration-thickness: 3px;
   text-underline-offset: 4px;
 }
 

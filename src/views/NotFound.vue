@@ -2,23 +2,23 @@
   <div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;">
     <v-empty-state>
       <template v-slot:headline>
-        <span style="font-size:5rem;font-weight:800;line-height:1;" :style="{ color: isDark ? '#fff' : '#000' }">404</span>
+        <span class="nf-headline">404</span>
       </template>
       <template v-slot:title>
-        <span class="page-title" style="margin-bottom:0.5rem;" :style="{ color: isDark ? '#fff' : '#000' }">Page not found</span>
+        <span class="page-title nf-title">Page not found</span>
       </template>
       <template v-slot:text>
-        <span style="font-size:0.9rem;" :style="{ color: isDark ? '#ccc' : '#555' }">The page you were looking for does not exist.</span>
+        <span class="nf-text">The page you were looking for does not exist.</span>
       </template>
       <template v-slot:actions>
-        <v-btn variant="outlined" :color="isDark ? 'white' : 'black'" :to="'/'">Go home</v-btn>
+        <router-link to="/" class="nf-btn">Go home</router-link>
       </template>
     </v-empty-state>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { onMounted, onBeforeUnmount } from 'vue';
 import { usePageMeta } from '../composables/usePageMeta';
 
 usePageMeta({ title: '404 – Page Not Found | Christopher Rose' });
@@ -33,20 +33,47 @@ onMounted(() => {
   el.setAttribute('content', 'noindex, nofollow');
 });
 
-const isDark = ref(false);
-let observer;
-
 onMounted(() => {
   document.documentElement.style.overflow = 'hidden';
-  isDark.value = document.body.classList.contains('dark-mode');
-  observer = new MutationObserver(() => {
-    isDark.value = document.body.classList.contains('dark-mode');
-  });
-  observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 });
 
 onBeforeUnmount(() => {
   document.documentElement.style.overflow = '';
-  observer?.disconnect();
 });
 </script>
+
+<style scoped>
+.nf-headline {
+  display: block;
+  font-size: 8rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(120deg, #aa3bff 0%, #ff3bac 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nf-title {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.nf-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.nf-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.45rem 1.5rem;
+  border-radius: 100px;
+  background: linear-gradient(120deg, #aa3bff, #ff3bac);
+  color: #fff !important;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+</style>
