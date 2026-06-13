@@ -1,5 +1,9 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const isBlankLayout = computed(() => route.meta.layout === 'blank');
 
 const isDark = ref(false);
 
@@ -26,7 +30,7 @@ function toggleTheme() {
 
 <template>
   <div class="site-wrapper">
-    <header class="site-header">
+    <header v-if="!isBlankLayout" class="site-header">
       <router-link to="/" class="site-title-link">
         <div class="site-title">Christopher Rose</div>
         <div class="site-subtitle">Educator & Executive</div>
@@ -40,12 +44,13 @@ function toggleTheme() {
     <main class="site-main">
       <router-view />
     </main>
-    <footer class="site-footer">
+    <footer v-if="!isBlankLayout" class="site-footer">
       <div class="site-footer-link">GitHub</div>
       <div class="site-footer-link">LinkedIn</div>
       <div class="site-footer-link">X</div>
     </footer>
     <v-btn
+      v-if="!isBlankLayout"
       icon
       size="large"
       color="black"
