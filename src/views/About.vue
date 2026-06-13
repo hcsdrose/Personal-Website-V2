@@ -2,7 +2,7 @@
   <div class="page-content">
     <h1 class="page-title">About <span class="about-accent">Me</span></h1>
 <p class="page-body about-bio">
-      A former Math Education Teacher turned Chief Product Officer at <a href="https://www.abre.com" target="_blank" class="about-link">Abre</a>, Chris is dedicated to revolutionizing K12 educational technology. With experience teaching Algebra and Pre-Calculus, he understands the challenges educators face and is passionate about creating solutions that enhance efficiency and improve outcomes. As a district web developer and e-learning coordinator, Chris wrote the first line of code for what would become Abre, a platform that grew to serve all staff, students, and families in the district. Recognized for his technical expertise and empathetic approach, Chris excels in building strong, collaborative relationships with colleagues and clients. As a loving husband and father to a 9-year-old daughter and a 6-year-old son, he treasures the time spent with his family, making memories and enjoying life's simple pleasures.
+      A former Math Education Teacher turned Chief Product Officer at <a href="https://www.abre.com" target="_blank" class="about-link">Abre</a>, Chris is dedicated to revolutionizing K12 educational technology. With experience teaching Algebra and Pre-Calculus, he understands the challenges educators face and is passionate about creating solutions that enhance efficiency and improve outcomes. As a district web developer and e-learning coordinator, Chris wrote the first line of code for what would become Abre, a platform that grew to serve all staff, students, and families in the district. Recognized for his technical expertise and empathetic approach, Chris excels in building strong, collaborative relationships with colleagues and clients. As a loving husband and father to a {{ daughterAge }}-year-old daughter and a {{ sonAge }}-year-old son, he treasures the time spent with his family, making memories and enjoying life's simple pleasures.
     </p>
 
     <h2 class="section-heading">Experience <span class="about-accent">&amp; Education</span></h2>
@@ -29,7 +29,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+
+function getAge(birthYear, birthMonth, birthDay) {
+  const today = new Date();
+  let age = today.getFullYear() - birthYear;
+  const monthDiff = today.getMonth() + 1 - birthMonth;
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDay)) age--;
+  return age;
+}
+
+const daughterAge = computed(() => getAge(2015, 7, 8));  // July 8, 2015
+const sonAge = computed(() => getAge(2018, 6, 7));       // June 7, 2018
 import { usePageMeta } from '../composables/usePageMeta';
 
 usePageMeta({

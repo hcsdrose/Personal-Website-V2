@@ -58,11 +58,10 @@
   text-underline-offset: 4px;
 }
 
-/* Dark/light mode transition — only active during the toggle */
-body.theme-transitioning,
-body.theme-transitioning *,
-body.theme-transitioning *::before,
-body.theme-transitioning *::after {
+/* Dark/light mode transition — only active during the toggle. Exclude .v-icon so the FAB animation isn't overridden. */
+body.theme-transitioning *:not(.v-icon),
+body.theme-transitioning *:not(.v-icon)::before,
+body.theme-transitioning *:not(.v-icon)::after {
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
 }
 
@@ -154,12 +153,51 @@ body.theme-transitioning *::after {
   text-decoration: none;
 }
 
+/* Theme icon wheel animation — old exits down spinning, new enters from above spinning */
+.fab-icon-wrap {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fab-icon-wrap .v-icon {
+  position: absolute !important;
+}
+
+.theme-icon-enter-active,
+.theme-icon-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.theme-icon-enter-from {
+  opacity: 0;
+  transform: translateY(-26px) rotate(-150deg) scale(0.4);
+}
+.theme-icon-enter-to {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg) scale(1);
+}
+.theme-icon-leave-from {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg) scale(1);
+}
+.theme-icon-leave-to {
+  opacity: 0;
+  transform: translateY(26px) rotate(150deg) scale(0.4);
+}
+
 /* Center icon inside the theme toggle FAB */
+.v-btn--fab {
+  overflow: visible !important;
+}
 .v-btn--fab .v-btn__content {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   line-height: 1 !important;
+  overflow: visible !important;
 }
 .v-btn--fab .v-icon {
   display: flex !important;

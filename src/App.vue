@@ -72,8 +72,13 @@ function toggleTheme() {
       :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
       class="v-btn--fab"
     >
-      <v-icon size="32" color="white" v-if="!isDark">mdi-weather-night</v-icon>
-      <v-icon size="32" color="white" v-else>mdi-white-balance-sunny</v-icon>
+      <span class="fab-icon-wrap">
+        <Transition name="theme-icon">
+          <v-icon size="28" color="white" :key="String(isDark)">
+            {{ isDark ? 'mdi-white-balance-sunny' : 'mdi-weather-night' }}
+          </v-icon>
+        </Transition>
+      </span>
     </v-btn>
   </div>
 </template>
