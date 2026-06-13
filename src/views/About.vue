@@ -1,11 +1,11 @@
 <template>
-  <div style="max-width:1200px;margin:0 auto;padding:0 1rem;text-align:left;box-sizing:border-box;">
-    <h1 style="font-size:3rem;font-weight:800;line-height:1.1;margin-bottom:2rem;color:#000;text-align:left;">About Me</h1>
-    <p style="font-size:24px;line-height:40px;margin-bottom:0;color:#000;text-align:left;">
+  <div class="page-content">
+    <h1 class="page-title">About Me</h1>
+    <p class="page-body">
       A former Math Education Teacher turned Chief Product Officer at Abre, Chris is dedicated to revolutionizing K12 educational technology. With experience teaching Algebra and Pre-Calculus, he understands the challenges educators face and is passionate about creating solutions that enhance efficiency and improve outcomes. As a district web developer and e-learning coordinator, Chris wrote the first line of code for what would become Abre, a platform that grew to serve all staff, students, and families in the district. Recognized for his technical expertise and empathetic approach, Chris excels in building strong, collaborative relationships with colleagues and clients. As a loving husband and father to a 9-year-old daughter and a 6-year-old son, he treasures the time spent with his family, making memories and enjoying life's simple pleasures.
     </p>
 
-    <h2 style="margin-top:3rem;font-size:2rem;font-weight:700;color:#000;">Experience & Education</h2>
+    <h2 class="section-heading">Experience & Education</h2>
     <v-timeline :side="isMobile ? 'end' : undefined" :density="isMobile ? 'compact' : 'default'">
       <v-timeline-item
         v-for="item in timelineItems"

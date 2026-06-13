@@ -56,6 +56,30 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
+.page-title {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: #000;
+  text-align: left;
+}
+.page-body {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.65;
+  color: #000;
+  text-align: left;
+}
+.section-heading {
+  margin-top: 3rem;
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: #000;
+}
+.page-content {
+  width: 100%;
+}
 .site-main {
   flex: 1;
   display: flex;
