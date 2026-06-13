@@ -56,9 +56,9 @@ onBeforeUnmount(() => {
 });
 
 const timelineItems = ref([
-  { id: 1,  title: 'Abre',                          role: 'Chief Product Officer, Co-Founder, Board',          dates: 'May 2024 - Present',  image: abreLogo },
-  { id: 2,  title: 'Abre',                          role: 'SVP of Product & Technology, Co-Founder, Board',    dates: 'Dec 2022 - May 2024', image: abreLogo },
-  { id: 3,  title: 'Abre',                          role: 'VP Product, Co-Founder, Board',                     dates: 'Aug 2017 - Dec 2022', image: abreLogo },
+  { id: 1,  title: 'Abre.io, Inc',                          role: 'Chief Product Officer, Co-Founder, Board',          dates: 'May 2024 - Present',  image: abreLogo },
+  { id: 2,  title: 'Abre.io, Inc',                          role: 'SVP of Product & Technology, Co-Founder, Board',    dates: 'Dec 2022 - May 2024', image: abreLogo },
+  { id: 3,  title: 'Abre.io, Inc',                          role: 'VP Product, Co-Founder, Board',                     dates: 'Aug 2017 - Dec 2022', image: abreLogo },
   { id: 4,  title: 'Hamilton City School District', role: 'Assistant Director of Technology',                   dates: 'Aug 2017 - Oct 2017', image: hamiltonLogo },
   { id: 5,  title: 'Hamilton City School District', role: 'Web Developer & eLearning Coordinator',              dates: 'Jun 2015 - Jul 2017', image: hamiltonLogo },
   { id: 6,  title: 'University of Nebraska at Kearney', role: "Master's in Science Educational Technology",    dates: '2014 - 2016',         image: unkLogo },
