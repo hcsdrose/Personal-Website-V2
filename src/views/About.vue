@@ -32,6 +32,13 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { usePageMeta } from '../composables/usePageMeta';
+
+usePageMeta({
+  title: 'About | Christopher Rose',
+  description: "Christopher Rose's journey from high school math teacher to Chief Product Officer at Abre — full experience and education history.",
+  canonical: 'https://christopherrose.com/about',
+});
 import abreLogo from '../assets/abre.png';
 import hamiltonLogo from '../assets/hamilton_city_school_district.png';
 import hamiltonHighLogo from '../assets/hamilton_high.png';

@@ -19,6 +19,19 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { usePageMeta } from '../composables/usePageMeta';
+
+usePageMeta({ title: '404 – Page Not Found | Christopher Rose' });
+
+onMounted(() => {
+  let el = document.querySelector('meta[name="robots"]');
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute('name', 'robots');
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', 'noindex, nofollow');
+});
 
 const isDark = ref(false);
 let observer;

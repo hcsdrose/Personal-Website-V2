@@ -8,5 +8,11 @@
 </template>
 
 <script setup>
-// Add any logic if needed
+import { usePageMeta } from '../composables/usePageMeta';
+
+usePageMeta({
+  title: 'Christopher Rose | Educator & Tech Executive',
+  description: 'Christopher Rose, Chief Product Officer and Co-Founder at Abre. Experienced educator turned tech executive with 15+ years in software development, dedicated to transforming K12 education.',
+  canonical: 'https://christopherrose.com/',
+});
 </script>
