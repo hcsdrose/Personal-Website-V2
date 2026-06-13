@@ -25,20 +25,26 @@ import { usePageMeta } from '../composables/usePageMeta';
 
 const updateOverflow = () => {
   document.documentElement.style.overflowY = '';
+  // visualViewport accounts for mobile browser chrome (address bar showing/hiding)
+  const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
   const bodyPaddingV = parseInt(getComputedStyle(document.body).paddingTop) +
                        parseInt(getComputedStyle(document.body).paddingBottom);
   document.documentElement.style.overflowY =
-    document.documentElement.scrollHeight > window.innerHeight + bodyPaddingV ? '' : 'hidden';
+    document.documentElement.scrollHeight > vh + bodyPaddingV ? '' : 'hidden';
 };
 
 onMounted(() => {
   updateOverflow();
+  // Re-check after fonts/layout settle — avoids locking scroll on underestimated scrollHeight
+  setTimeout(updateOverflow, 150);
   window.addEventListener('resize', updateOverflow);
+  window.visualViewport?.addEventListener('resize', updateOverflow);
 });
 
 onBeforeUnmount(() => {
   document.documentElement.style.overflowY = '';
   window.removeEventListener('resize', updateOverflow);
+  window.visualViewport?.removeEventListener('resize', updateOverflow);
 });
 
 usePageMeta({
