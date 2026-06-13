@@ -8,7 +8,7 @@
     <h2 class="section-heading">Experience <span class="about-accent">&amp; Education</span></h2>
     <v-timeline :side="isMobile ? 'end' : undefined" :density="isMobile ? 'compact' : 'default'">
       <v-timeline-item
-        v-for="item in timelineItems"
+        v-for="(item, index) in timelineItems"
         :key="item.id"
         :size="isMobile ? 'small' : 'large'"
       >
@@ -16,15 +16,13 @@
           <v-avatar :image="item.image || 'https://i.pravatar.cc/64'"></v-avatar>
         </template>
         <template v-if="!isMobile" v-slot:opposite>
-          <span>{{ item.dates }}</span>
+          <span class="tl-dates">{{ item.dates }}</span>
         </template>
-        <v-card class="elevation-1">
-          <v-card-title style="white-space:normal;word-break:break-word;">
-            {{ item.title }}
-          </v-card-title>
-          <v-card-subtitle v-if="isMobile">{{ item.dates }}</v-card-subtitle>
-          <v-card-text>{{ item.role }}</v-card-text>
-        </v-card>
+        <div class="tl-item" :class="{ 'tl-item--left': !isMobile && index % 2 !== 0 }">
+          <div class="tl-org">{{ item.title }}</div>
+          <div class="tl-role">{{ item.role }}</div>
+          <div v-if="isMobile" class="tl-dates" style="margin-top:0.2rem;">{{ item.dates }}</div>
+        </div>
       </v-timeline-item>
     </v-timeline>
   </div>
@@ -105,5 +103,38 @@ const timelineItems = ref([
 
 .about-link:hover::after {
   transform: scaleX(1);
+}
+
+.tl-item {
+  padding: 0.25rem 0 1.5rem;
+  text-align: left;
+}
+.tl-item--left {
+  text-align: right;
+}
+
+.tl-dates {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.tl-org {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #000;
+  line-height: 1.2;
+  margin-top: 0.2rem;
+}
+
+.tl-role {
+  font-family: 'Rubik', sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: #555;
+  margin-top: 0.25rem;
 }
 </style>
