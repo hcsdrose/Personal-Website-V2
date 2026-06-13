@@ -2,6 +2,8 @@
 import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
+const transitioning = ref(false);
+
 const route = useRoute();
 const isBlankLayout = computed(() => route.meta.layout === 'blank');
 
@@ -17,6 +19,7 @@ onMounted(() => {
 });
 
 function toggleTheme() {
+  document.body.classList.add('theme-transitioning');
   isDark.value = !isDark.value;
   if (isDark.value) {
     document.body.classList.add('dark-mode');
@@ -25,6 +28,7 @@ function toggleTheme() {
     document.body.classList.remove('dark-mode');
     localStorage.setItem('theme-dark', 'false');
   }
+  setTimeout(() => document.body.classList.remove('theme-transitioning'), 350);
 }
 </script>
 
@@ -41,8 +45,18 @@ function toggleTheme() {
         <router-link to="/about" class="site-nav-link">About</router-link>
       </nav>
     </header>
+    <div class="transition-bar" :class="{ active: transitioning }"></div>
     <main class="site-main">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <Transition
+          name="page"
+          mode="out-in"
+          @before-leave="transitioning = true"
+          @after-enter="transitioning = false"
+        >
+          <component :is="Component" :key="$route.path" />
+        </Transition>
+      </router-view>
     </main>
     <footer v-if="!isBlankLayout" class="site-footer">
       <a href="https://github.com/hcsdrose" target="_blank" rel="noopener" class="site-footer-link">GitHub</a>

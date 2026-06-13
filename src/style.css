@@ -58,6 +58,49 @@
   text-underline-offset: 4px;
 }
 
+/* Dark/light mode transition — only active during the toggle */
+body.theme-transitioning,
+body.theme-transitioning *,
+body.theme-transitioning *::before,
+body.theme-transitioning *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Page transition */
+.page-leave-active {
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+.page-enter-active {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(7px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+.transition-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #aa3bff, #ff3bac);
+  z-index: 9999;
+  pointer-events: none;
+}
+.transition-bar.active {
+  animation: bar-sweep 0.32s ease-out forwards;
+}
+@keyframes bar-sweep {
+  0%   { width: 0;    opacity: 1; }
+  65%  { width: 100%; opacity: 1; }
+  100% { width: 100%; opacity: 0; }
+}
+
 .page-hero-title {
   font-size: 3rem;
   font-weight: 800;
