@@ -109,6 +109,22 @@
   color: #000;
 }
 
+/* Center icon inside the theme toggle FAB */
+.v-btn--fab .v-btn__content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+.v-btn--fab .v-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /* Ensure mdi font is used for v-icon */
 .v-icon, .v-icon.mdi {
   font-family: 'Material Design Icons', 'mdi', sans-serif !important;
