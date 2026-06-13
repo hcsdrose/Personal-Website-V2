@@ -45,9 +45,8 @@ function toggleTheme() {
       <router-view />
     </main>
     <footer v-if="!isBlankLayout" class="site-footer">
-      <div class="site-footer-link">GitHub</div>
-      <div class="site-footer-link">LinkedIn</div>
-      <div class="site-footer-link">X</div>
+      <a href="https://github.com/hcsdrose" target="_blank" rel="noopener" class="site-footer-link">GitHub</a>
+      <a href="https://www.linkedin.com/in/christopherrosein/" target="_blank" rel="noopener" class="site-footer-link">LinkedIn</a>
     </footer>
     <v-btn
       v-if="!isBlankLayout"
