@@ -345,6 +345,11 @@ body {
   margin: 0;
 }
 
+::selection {
+  background: #aa3bff;
+  color: #fff;
+}
+
 h1,
 h2 {
   font-family: var(--heading);
