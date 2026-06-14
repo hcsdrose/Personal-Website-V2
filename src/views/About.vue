@@ -13,7 +13,9 @@
         :size="isMobile ? 'small' : 'large'"
       >
         <template v-if="!isMobile" v-slot:icon>
-          <v-avatar :image="item.image || 'https://i.pravatar.cc/64'"></v-avatar>
+          <v-avatar color="white">
+            <img :src="item.image || 'https://i.pravatar.cc/64'" style="width:70%;height:70%;object-fit:contain;" />
+          </v-avatar>
         </template>
         <template v-if="!isMobile" v-slot:opposite>
           <span class="tl-dates">{{ item.dates }}</span>
