@@ -3,10 +3,10 @@
 <h1 class="page-hero-title">
       Experienced Educator Turned<br>
       <span class="home-accent-word">Tech Executive</span><br>
-      with 15+ Years in Software Development
+      with {{ codingYears }}+ Years in Software Development
     </h1>
     <div class="home-chips">
-      <span class="chip chip--filled">15+ Years</span>
+      <span class="chip chip--filled">{{ codingYears }}+ Years</span>
       <span class="chip chip--accent">CPO &amp; Co-Founder</span>
       <span class="chip chip--outlined">K12 EdTech</span>
     </div>
@@ -20,8 +20,15 @@
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount } from 'vue';
+import { computed, onMounted, onBeforeUnmount } from 'vue';
 import { usePageMeta } from '../composables/usePageMeta';
+
+function getCodingYears(startYear) {
+  const years = new Date().getFullYear() - startYear;
+  return Math.round(years / 2) * 2;
+}
+
+const codingYears = computed(() => getCodingYears(2001));
 
 const updateOverflow = () => {
   document.documentElement.style.overflowY = '';
@@ -49,7 +56,7 @@ onBeforeUnmount(() => {
 
 usePageMeta({
   title: 'Christopher Rose | Educator & Tech Executive',
-  description: 'Christopher Rose, Chief Product Officer and Co-Founder at Abre. Experienced educator turned tech executive with 15+ years in software development, dedicated to transforming K12 education.',
+  description: `Christopher Rose, Chief Product Officer and Co-Founder at Abre. Experienced educator turned tech executive with ${getCodingYears(2001)}+ years in software development, dedicated to transforming K12 education.`,
   canonical: 'https://christopherrose.com/',
 });
 </script>
